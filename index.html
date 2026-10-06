@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design System | Estética Premium</title>
+  <link rel="stylesheet" href="src/tokens.css">
+  <link rel="stylesheet" href="src/components.css">
+  <style>
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+    .swatch { border-radius: var(--radius-img); overflow: hidden; background: var(--color-white-warm); border: 1px solid var(--border-soft); }
+    .swatch i { display: block; height: 72px; }
+    .swatch span { display: block; padding: 10px 12px; font-size: 12px; line-height: 1.4; }
+    .stack { display: grid; gap: 24px; }
+    .row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .doc-head { padding-block: 96px 56px; }
+    .doc-head .script { margin-top: 8px; display: block; }
+    .block-title { margin-bottom: 32px; display: grid; gap: 12px; }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="nav__logo" href="#">Lumina</a>
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#cores" aria-current="page">Cores</a>
+        <a href="#tipografia">Tipografia</a>
+        <a href="#botoes">Botões</a>
+        <a href="#cards">Cards</a>
+        <a href="#formulario">Formulário</a>
+      </nav>
+      <a class="btn btn--cta" href="#formulario">Agendar</a>
+    </div>
+  </header>
+
+  <section class="section--dark doc-head">
+    <div class="container">
+      <p class="eyebrow accent">Design System</p>
+      <h1>Cuidado que revela<br>sua <em>beleza</em> natural</h1>
+      <span class="script">harmonia</span>
+      <p class="lead measure" style="margin-top:24px">Referência visual de cores, tipografia e componentes para a landing page de agendamento, resultados e feedbacks.</p>
+      <div class="row" style="margin-top:32px">
+        <a class="btn btn--light" href="#formulario">Agendar avaliação</a>
+        <a class="btn btn--outline" href="#cards">Ver componentes</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cores">
+    <div class="container stack">
+      <div class="block-title"><p class="eyebrow accent">01</p><h2>Cores</h2></div>
+      <div class="swatches">
+        <div class="swatch"><i style="background:#141A14"></i><span><b>Forest 900</b><br>#141A14</span></div>
+        <div class="swatch"><i style="background:#1F261D"></i><span><b>Forest 800</b><br>#1F261D</span></div>
+        <div class="swatch"><i style="background:#F6EFE6"></i><span><b>Cream 100</b><br>#F6EFE6</span></div>
+        <div class="swatch"><i style="background:#EADBC8"></i><span><b>Sand 200</b><br>#EADBC8</span></div>
+        <div class="swatch"><i style="background:#FBF8F3"></i><span><b>White warm</b><br>#FBF8F3</span></div>
+        <div class="swatch"><i style="background:#B9807A"></i><span><b>Rosé 500</b><br>#B9807A</span></div>
+        <div class="swatch"><i style="background:#9C6660"></i><span><b>Rosé 600</b><br>#9C6660</span></div>
+        <div class="swatch"><i style="background:#F0DDD8"></i><span><b>Rosé 100</b><br>#F0DDD8</span></div>
+        <div class="swatch"><i style="background:#B8935A"></i><span><b>Gold 500</b><br>#B8935A</span></div>
+        <div class="swatch"><i style="background:#B9A7C6"></i><span><b>Lilac 300</b><br>#B9A7C6</span></div>
+        <div class="swatch"><i style="background:#3A3A3A"></i><span><b>Text body</b><br>#3A3A3A</span></div>
+        <div class="swatch"><i style="background:#6B655E"></i><span><b>Text muted</b><br>#6B655E</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand" id="tipografia">
+    <div class="container stack">
+      <div class="block-title"><p class="eyebrow accent">02</p><h2>Tipografia</h2></div>
+      <h1>H1 Nourish <em>naturally</em></h1>
+      <h2>H2 Clean beauty, rooted in nature</h2>
+      <h3>H3 Calm. Hydrate. Glow.</h3>
+      <h4>H4 Título de apoio em Poppins</h4>
+      <p class="lead measure">Texto de destaque: leve, com bastante entrelinha, para apresentar a proposta de valor da seção.</p>
+      <p class="measure">Corpo de texto em Poppins 400, 16px, line-height 1.7. Linhas de até 62 caracteres para leitura confortável em qualquer tela.</p>
+      <p class="text-small text-muted measure">Texto secundário para legendas, avisos e informações complementares.</p>
+      <p class="label">Label em caixa alta</p>
+      <p>Frase com <span class="highlight">destaque em lilás</span> usada uma vez por seção. <a href="#">Link com sublinhado fino</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="botoes">
+    <div class="container stack">
+      <div class="block-title"><p class="eyebrow accent">03</p><h2>Botões, tags e badges</h2></div>
+      <div class="row">
+        <button class="btn btn--primary">Comprar</button>
+        <button class="btn btn--cta">Agendar consulta</button>
+        <button class="btn btn--outline">Veja na descrição</button>
+        <button class="btn btn--icon" aria-label="Adicionar">+</button>
+        <button class="btn btn--primary" disabled>Desabilitado</button>
+      </div>
+      <div class="row">
+        <span class="badge">Novo</span>
+        <span class="badge badge--dark">Mais procurado</span>
+        <span class="badge badge--outline">30 min</span>
+        <button class="tag" aria-pressed="true">Lábios</button>
+        <button class="tag" aria-pressed="false">Preenchimento</button>
+        <button class="tag" aria-pressed="false">Bioestimulador</button>
+      </div>
+      <div class="ornament" aria-hidden="true"><span></span></div>
+    </div>
+  </section>
+
+  <section class="section section--sand" id="cards">
+    <div class="container stack">
+      <div class="block-title"><p class="eyebrow accent">04</p><h2>Cards e prova social</h2></div>
+      <div class="grid grid--3">
+        <article class="card">
+          <div class="card__media"></div>
+          <div class="card__body">
+            <h3 class="card__title">Harmonização labial</h3>
+            <p class="card__text">Contorno e hidratação com aparência natural.</p>
+            <div class="card__footer"><span>45 min</span><button class="btn btn--icon" aria-label="Saber mais">+</button></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__media"></div>
+          <div class="card__body">
+            <h3 class="card__title">Perfil harmônico</h3>
+            <p class="card__text">Equilíbrio entre queixo, nariz e lábios.</p>
+            <div class="card__footer"><span>60 min</span><button class="btn btn--icon" aria-label="Saber mais">+</button></div>
+          </div>
+        </article>
+        <article class="card" aria-disabled="true">
+          <div class="card__media"></div>
+          <div class="card__body">
+            <h3 class="card__title">Bioestimulador</h3>
+            <p class="card__text">Estado desabilitado (agenda cheia).</p>
+            <div class="card__footer"><span>60 min</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="grid grid--3" style="margin-top:32px">
+        <blockquote class="testimonial" style="margin:0">
+          <span class="testimonial__stars" aria-label="5 de 5 estrelas">★★★★★</span>
+          <p class="testimonial__quote">Saí com o rosto leve e natural, exatamente como conversamos na avaliação.</p>
+          <div class="testimonial__author">
+            <span class="avatar"></span>
+            <span><span class="testimonial__name">Mariana S.</span><span class="testimonial__meta">Harmonização labial</span></span>
+          </div>
+        </blockquote>
+        <div class="stat"><span class="stat__value">+2.500</span><span class="stat__label">Pacientes atendidos</span></div>
+        <div class="stat"><span class="stat__value">4,9</span><span class="stat__label">Avaliação média</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="formulario">
+    <div class="container">
+      <div class="grid grid--2" style="align-items:center">
+        <div class="stack">
+          <p class="eyebrow accent">05</p>
+          <h2>Agende sua <em>avaliação</em></h2>
+          <p class="lead measure">Conversamos sobre seus objetivos e montamos um plano personalizado, sem compromisso.</p>
+        </div>
+
+        <form class="booking" id="booking" novalidate>
+          <h3>Agendar consulta</h3>
+          <div class="field"><label class="label" for="nome">Nome</label><input class="input" id="nome" type="text" placeholder="Seu nome completo" required></div>
+          <div class="field"><label class="label" for="whats">WhatsApp</label><input class="input" id="whats" type="tel" placeholder="(00) 00000-0000" required></div>
+          <div class="field">
+            <label class="label" for="proc">Procedimento de interesse</label>
+            <select class="select" id="proc"><option>Harmonização labial</option><option>Perfil harmônico</option><option>Ainda não sei</option></select>
+          </div>
+          <div class="field"><label class="label" for="msg">Mensagem (opcional)</label><textarea class="textarea" id="msg"></textarea></div>
+          <label class="check"><input type="checkbox" required> Concordo com o uso dos meus dados para contato, conforme a LGPD.</label>
+          <button class="btn btn--cta btn--block" type="submit">Agendar avaliação</button>
+          <p class="booking__note">Resposta em até 1 hora útil. Sem compromisso.</p>
+          <div class="booking__success" role="status">
+            <h3>Recebemos seu pedido</h3>
+            <p>Nossa equipe vai chamar você no WhatsApp para confirmar o melhor horário.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container faq measure">
+      <div class="block-title"><p class="eyebrow accent">06</p><h2>Mitos e verdades</h2></div>
+      <details open><summary>Harmonização facial muda meu rosto?</summary><p>O objetivo é equilibrar traços respeitando sua identidade, com resultado natural.</p></details>
+      <details><summary>O procedimento dói?</summary><p>Usamos anestésico tópico e técnicas que reduzem o desconforto.</p></details>
+    </div>
+  </section>
+
+  <footer class="section--dark" style="padding-block:48px">
+    <div class="container text-small">Resultados variam de pessoa para pessoa. Responsável técnico: Nome, CRO/CRM 00000.</div>
+  </footer>
+
+  <a class="fab-whatsapp" href="#formulario" aria-label="Falar no WhatsApp">WA</a>
+
+  <script>
+    // Alterna tags de filtro e simula envio do formulário (demo)
+    document.querySelectorAll('.tag').forEach(function (t) {
+      t.addEventListener('click', function () {
+        t.setAttribute('aria-pressed', t.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      });
+    });
+    document.getElementById('booking').addEventListener('submit', function (e) {
+      e.preventDefault();
+      this.classList.add('is-success');
+    });
+  </script>
+</body>
+</html>
