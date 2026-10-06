@@ -63,7 +63,22 @@
   .section--ivory { background-color: var(--ivory); }
   .section__head { text-align: center; margin-bottom: 50px; }
   .section__head h2 { font-size: 2.5rem; }
-  
+  /* Secção Sobre Mim */
+  .about { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+    align-items: center; 
+  }
+  .about__photo img { 
+    width: 100%; 
+    border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    object-fit: cover; 
+  }
+  @media (min-width: 768px) { 
+    .about { grid-template-columns: 1fr 1fr; } 
+  }
   /* Grid & Cards */
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
   .card { background: #fff; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
@@ -122,13 +137,21 @@
 
 <section class="section section--ivory" id="sobre">
   <div class="container about">
+    <div class="about__photo">
+      <!-- A imagem carregada no Passo 1 -->
+      <img src="doutora.jpg" alt="Dra. Sabrina com prancheta" loading="lazy">
+    </div>
     <div class="about__text">
-      <h2>Ciência, cuidado e responsabilidade técnica</h2>
-      <p>Sou a <strong>Dra. Sabrina</strong> e dedico minha prática a resultados harmônicos, que respeitam a anatomia e a identidade de cada paciente.</p>
-      <p>Todo atendimento começa com uma avaliação detalhada. Os procedimentos seguem protocolos de biossegurança, com materiais rastreáveis e aprovados pela ANVISA.</p>
-      <ul class="hero__badges">
-        <li><strong>Registro:</strong> CRF-XX nº 00000</li>
+      <h2>A paixão por realçar a sua beleza</h2>
+      <p>Sou a <strong>Dra. Sabrina</strong> e a minha jornada na estética começou com um propósito claro: ajudar pessoas a sentirem-se bem na própria pele, respeitando sempre a sua identidade e os seus traços únicos.</p>
+      <p>Acredito que a verdadeira beleza não está na transformação radical, mas nos detalhes que devolvem a autoestima. Cada rosto conta uma história, e o meu trabalho é unir a ciência, a segurança e um olhar clínico minucioso para iluminar a sua melhor versão.</p>
+      <ul class="hero__badges" style="justify-content: flex-start; margin-top: 20px;">
+        <li><strong>Registo:</strong> CRF-XX nº 00000</li>
         <li><strong>Formação:</strong> Farmácia Estética</li>
+      </ul>
+    </div>
+  </div>
+</section>
       </ul>
     </div>
   </div>
