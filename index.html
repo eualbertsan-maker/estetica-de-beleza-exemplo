@@ -1,209 +1,168 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Design System | Estética Premium</title>
-  <link rel="stylesheet" href="src/tokens.css">
-  <link rel="stylesheet" href="src/components.css">
-  <style>
-    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
-    .swatch { border-radius: var(--radius-img); overflow: hidden; background: var(--color-white-warm); border: 1px solid var(--border-soft); }
-    .swatch i { display: block; height: 72px; }
-    .swatch span { display: block; padding: 10px 12px; font-size: 12px; line-height: 1.4; }
-    .stack { display: grid; gap: 24px; }
-    .row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
-    .doc-head { padding-block: 96px 56px; }
-    .doc-head .script { margin-top: 8px; display: block; }
-    .block-title { margin-bottom: 32px; display: grid; gap: 12px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dra. Sabrina | Estética Avançada</title>
+<meta name="description" content="Rejuvenescimento com beleza natural. Toxina botulínica, preenchimentos, bioestimuladores e mais, com segurança e responsabilidade técnica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --primary: #9C6650;
+    --primary-light: #D4A373;
+    --bg: #FAEDEB;
+    --ivory: #F9F6F0;
+    --text: #333333;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Jost', sans-serif; }
+  body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+  h1, h2, h3, .logo { font-family: 'Cormorant Garamond', serif; color: var(--primary); }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  
+  /* Header */
+  .header { padding: 20px 0; background: #fff; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+  .header__inner { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.8rem; text-decoration: none; font-weight: 600; }
+  .nav { display: flex; gap: 20px; }
+  .nav a { text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; }
+  .nav a:hover { color: var(--primary); }
+  
+  /* Buttons */
+  .btn { display: inline-block; background: var(--primary); color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 30px; font-weight: 600; transition: 0.3s; }
+  .btn:hover { background: var(--primary-light); }
+  
+  /* Hero */
+  .hero { padding: 80px 0; text-align: center; }
+  .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+  .hero__sub { font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .hero__badges { display: flex; justify-content: center; gap: 15px; list-style: none; margin-top: 30px; flex-wrap: wrap; }
+  .hero__badges li { background: #fff; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+  
+  /* Sections */
+  .section { padding: 80px 0; }
+  .section--ivory { background-color: var(--ivory); }
+  .section__head { text-align: center; margin-bottom: 50px; }
+  .section__head h2 { font-size: 2.5rem; }
+  
+  /* Grid & Cards */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+  .card { background: #fff; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+  .card:hover { transform: translateY(-5px); }
+  .card svg { width: 50px; height: 50px; fill: none; stroke: var(--primary); stroke-width: 2; margin-bottom: 20px; }
+  
+  /* Quotes */
+  .quote { background: #fff; padding: 30px; border-radius: 15px; font-style: italic; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+  .stars { color: #F5A623; margin-bottom: 15px; }
+  
+  /* FAQ */
+  .faq__item { background: #fff; margin-bottom: 10px; border-radius: 10px; overflow: hidden; }
+  .faq__q { width: 100%; padding: 20px; text-align: left; background: none; border: none; font-size: 1.1rem; font-weight: 600; cursor: pointer; color: var(--primary); }
+  .faq__a { padding: 0 20px 20px; }
+  
+  /* Footer */
+  .footer { background: #333; color: #fff; padding: 50px 0; }
+  .footer__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+  .footer a { color: #fff; text-decoration: none; }
+  .footer__copy { text-align: center; font-size: 0.9rem; border-top: 1px solid #555; padding-top: 20px; }
+  
+  /* WA Float */
+  .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; transition: 0.3s; }
+  .wa-float:hover { transform: scale(1.1); }
+  .wa-float svg { width: 35px; height: 35px; }
+  
+  @media (max-width: 768px) {
+    .nav { display: none; }
+    .hero h1 { font-size: 2.5rem; }
+  }
+</style>
 </head>
 <body>
 
-  <header class="nav">
-    <div class="container nav__inner">
-      <a class="nav__logo" href="#">Lumina</a>
-      <nav class="nav__links" aria-label="Principal">
-        <a href="#cores" aria-current="page">Cores</a>
-        <a href="#tipografia">Tipografia</a>
-        <a href="#botoes">Botões</a>
-        <a href="#cards">Cards</a>
-        <a href="#formulario">Formulário</a>
-      </nav>
-      <a class="btn btn--cta" href="#formulario">Agendar</a>
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#inicio" class="logo">Dra. <span>Sabrina</span></a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#sobre">Sobre</a><a href="#tratamentos">Tratamentos</a><a href="#depoimentos">Depoimentos</a><a href="#faq">Dúvidas</a><a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="container hero__grid">
+    <div class="hero__text">
+      <p class="eyebrow">Estética avançada</p>
+      <h1>Valorize sua beleza, do seu jeito.</h1>
+      <p class="hero__sub">Rejuvenescimento com resultado natural: avaliação individual, produtos regulamentados e protocolos feitos para o seu rosto.</p>
+      <a href="https://wa.me/5594981444516" target="_blank" class="btn">Agendar minha avaliação</a>
+      <ul class="hero__badges"><li>Avaliação individual</li><li>Produtos regulamentados</li><li>Biossegurança rigorosa</li></ul>
     </div>
-  </header>
+  </div>
+</section>
 
-  <section class="section--dark doc-head">
-    <div class="container">
-      <p class="eyebrow accent">Design System</p>
-      <h1>Cuidado que revela<br>sua <em>beleza</em> natural</h1>
-      <span class="script">harmonia</span>
-      <p class="lead measure" style="margin-top:24px">Referência visual de cores, tipografia e componentes para a landing page de agendamento, resultados e feedbacks.</p>
-      <div class="row" style="margin-top:32px">
-        <a class="btn btn--light" href="#formulario">Agendar avaliação</a>
-        <a class="btn btn--outline" href="#cards">Ver componentes</a>
-      </div>
+<section class="section section--ivory" id="sobre">
+  <div class="container about">
+    <div class="about__text">
+      <h2>Ciência, cuidado e responsabilidade técnica</h2>
+      <p>Sou a <strong>Dra. Sabrina</strong> e dedico minha prática a resultados harmônicos, que respeitam a anatomia e a identidade de cada paciente.</p>
+      <p>Todo atendimento começa com uma avaliação detalhada. Os procedimentos seguem protocolos de biossegurança, com materiais rastreáveis e aprovados pela ANVISA.</p>
+      <ul class="hero__badges">
+        <li><strong>Registro:</strong> CRF-XX nº 00000</li>
+        <li><strong>Formação:</strong> Farmácia Estética</li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="cores">
-    <div class="container stack">
-      <div class="block-title"><p class="eyebrow accent">01</p><h2>Cores</h2></div>
-      <div class="swatches">
-        <div class="swatch"><i style="background:#141A14"></i><span><b>Forest 900</b><br>#141A14</span></div>
-        <div class="swatch"><i style="background:#1F261D"></i><span><b>Forest 800</b><br>#1F261D</span></div>
-        <div class="swatch"><i style="background:#F6EFE6"></i><span><b>Cream 100</b><br>#F6EFE6</span></div>
-        <div class="swatch"><i style="background:#EADBC8"></i><span><b>Sand 200</b><br>#EADBC8</span></div>
-        <div class="swatch"><i style="background:#FBF8F3"></i><span><b>White warm</b><br>#FBF8F3</span></div>
-        <div class="swatch"><i style="background:#B9807A"></i><span><b>Rosé 500</b><br>#B9807A</span></div>
-        <div class="swatch"><i style="background:#9C6660"></i><span><b>Rosé 600</b><br>#9C6660</span></div>
-        <div class="swatch"><i style="background:#F0DDD8"></i><span><b>Rosé 100</b><br>#F0DDD8</span></div>
-        <div class="swatch"><i style="background:#B8935A"></i><span><b>Gold 500</b><br>#B8935A</span></div>
-        <div class="swatch"><i style="background:#B9A7C6"></i><span><b>Lilac 300</b><br>#B9A7C6</span></div>
-        <div class="swatch"><i style="background:#3A3A3A"></i><span><b>Text body</b><br>#3A3A3A</span></div>
-        <div class="swatch"><i style="background:#6B655E"></i><span><b>Text muted</b><br>#6B655E</span></div>
-      </div>
+<section class="section" id="tratamentos">
+  <div class="container">
+    <div class="section__head"><h2>Tratamentos</h2><p>Cada procedimento é indicado só depois da avaliação.</p></div>
+    <div class="grid">
+      <article class="card"><svg viewBox="0 0 24 24"><path d="M3 21l9-9M14 4l6 6M12 6l6 6-4 4-6-6z"/></svg><h3>Toxina Botulínica</h3><p>Suaviza linhas de expressão e previne novas marcas, mantendo a expressão natural.</p></article>
+      <article class="card"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-6 6-10z"/></svg><h3>Preenchimentos</h3><p>Volume e contorno com ácido hialurônico, incluindo a harmonização labial.</p></article>
+      <article class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg><h3>Bioestimuladores</h3><p>Estimulam o seu próprio colágeno e melhoram firmeza e qualidade da pele.</p></article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section section--sand" id="tipografia">
-    <div class="container stack">
-      <div class="block-title"><p class="eyebrow accent">02</p><h2>Tipografia</h2></div>
-      <h1>H1 Nourish <em>naturally</em></h1>
-      <h2>H2 Clean beauty, rooted in nature</h2>
-      <h3>H3 Calm. Hydrate. Glow.</h3>
-      <h4>H4 Título de apoio em Poppins</h4>
-      <p class="lead measure">Texto de destaque: leve, com bastante entrelinha, para apresentar a proposta de valor da seção.</p>
-      <p class="measure">Corpo de texto em Poppins 400, 16px, line-height 1.7. Linhas de até 62 caracteres para leitura confortável em qualquer tela.</p>
-      <p class="text-small text-muted measure">Texto secundário para legendas, avisos e informações complementares.</p>
-      <p class="label">Label em caixa alta</p>
-      <p>Frase com <span class="highlight">destaque em lilás</span> usada uma vez por seção. <a href="#">Link com sublinhado fino</a>.</p>
+<section class="section section--ivory" id="depoimentos">
+  <div class="container">
+    <div class="section__head"><h2>Quem confia, recomenda</h2></div>
+    <div class="grid">
+      <figure class="quote"><div class="stars">★★★★★</div><blockquote>Atendimento cuidadoso do começo ao fim. Me senti segura e o resultado ficou super natural.</blockquote><figcaption>Mariana S.</figcaption></figure>
+      <figure class="quote"><div class="stars">★★★★★</div><blockquote>Ela explicou cada etapa e não indicou nada além do necessário. Recomendo muito!</blockquote><figcaption>Camila R.</figcaption></figure>
+      <figure class="quote"><div class="stars">★★★★★</div><blockquote>Clínica impecável e profissional de confiança. Voltarei com certeza.</blockquote><figcaption>Juliana M.</figcaption></figure>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="botoes">
-    <div class="container stack">
-      <div class="block-title"><p class="eyebrow accent">03</p><h2>Botões, tags e badges</h2></div>
-      <div class="row">
-        <button class="btn btn--primary">Comprar</button>
-        <button class="btn btn--cta">Agendar consulta</button>
-        <button class="btn btn--outline">Veja na descrição</button>
-        <button class="btn btn--icon" aria-label="Adicionar">+</button>
-        <button class="btn btn--primary" disabled>Desabilitado</button>
-      </div>
-      <div class="row">
-        <span class="badge">Novo</span>
-        <span class="badge badge--dark">Mais procurado</span>
-        <span class="badge badge--outline">30 min</span>
-        <button class="tag" aria-pressed="true">Lábios</button>
-        <button class="tag" aria-pressed="false">Preenchimento</button>
-        <button class="tag" aria-pressed="false">Bioestimulador</button>
-      </div>
-      <div class="ornament" aria-hidden="true"><span></span></div>
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section__head"><h2>Perguntas frequentes</h2></div>
+    <div class="faq">
+      <div class="faq__item"><div class="faq__q">Os procedimentos doem?</div><div class="faq__a"><p>O desconforto costuma ser leve. Quando necessário, usamos anestésico tópico para deixar o procedimento mais confortável.</p></div></div>
+      <div class="faq__item"><div class="faq__q">Quando vejo os resultados?</div><div class="faq__a"><p>Depende do procedimento: alguns mostram efeito em dias; bioestimuladores e microagulhamento evoluem ao longo de semanas.</p></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section section--sand" id="cards">
-    <div class="container stack">
-      <div class="block-title"><p class="eyebrow accent">04</p><h2>Cards e prova social</h2></div>
-      <div class="grid grid--3">
-        <article class="card">
-          <div class="card__media"></div>
-          <div class="card__body">
-            <h3 class="card__title">Harmonização labial</h3>
-            <p class="card__text">Contorno e hidratação com aparência natural.</p>
-            <div class="card__footer"><span>45 min</span><button class="btn btn--icon" aria-label="Saber mais">+</button></div>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card__media"></div>
-          <div class="card__body">
-            <h3 class="card__title">Perfil harmônico</h3>
-            <p class="card__text">Equilíbrio entre queixo, nariz e lábios.</p>
-            <div class="card__footer"><span>60 min</span><button class="btn btn--icon" aria-label="Saber mais">+</button></div>
-          </div>
-        </article>
-        <article class="card" aria-disabled="true">
-          <div class="card__media"></div>
-          <div class="card__body">
-            <h3 class="card__title">Bioestimulador</h3>
-            <p class="card__text">Estado desabilitado (agenda cheia).</p>
-            <div class="card__footer"><span>60 min</span></div>
-          </div>
-        </article>
-      </div>
+</main>
 
-      <div class="grid grid--3" style="margin-top:32px">
-        <blockquote class="testimonial" style="margin:0">
-          <span class="testimonial__stars" aria-label="5 de 5 estrelas">★★★★★</span>
-          <p class="testimonial__quote">Saí com o rosto leve e natural, exatamente como conversamos na avaliação.</p>
-          <div class="testimonial__author">
-            <span class="avatar"></span>
-            <span><span class="testimonial__name">Mariana S.</span><span class="testimonial__meta">Harmonização labial</span></span>
-          </div>
-        </blockquote>
-        <div class="stat"><span class="stat__value">+2.500</span><span class="stat__label">Pacientes atendidos</span></div>
-        <div class="stat"><span class="stat__value">4,9</span><span class="stat__label">Avaliação média</span></div>
-      </div>
-    </div>
-  </section>
+<footer class="footer" id="contato">
+  <div class="container footer__grid">
+    <div><a href="#inicio" class="logo" style="color:white;">Dra. <span>Sabrina</span></a><p>Estética avançada<br>CRF-XX nº 00000</p></div>
+    <div><h4>Contato</h4><p>Rua Exemplo, 123, Sala 45<br>Bairro, Cidade, UF</p><p>Seg a Sex, 9h às 18h</p></div>
+    <div><h4>Redes sociais</h4><p><a href="#" target="_blank">Instagram</a></p></div>
+  </div>
+  <p class="footer__copy">© 2026 Dra. Sabrina. Todos os direitos reservados.</p>
+</footer>
 
-  <section class="section" id="formulario">
-    <div class="container">
-      <div class="grid grid--2" style="align-items:center">
-        <div class="stack">
-          <p class="eyebrow accent">05</p>
-          <h2>Agende sua <em>avaliação</em></h2>
-          <p class="lead measure">Conversamos sobre seus objetivos e montamos um plano personalizado, sem compromisso.</p>
-        </div>
+<a href="https://wa.me/5594981444516" target="_blank" class="wa-float" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.4-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>
+</a>
 
-        <form class="booking" id="booking" novalidate>
-          <h3>Agendar consulta</h3>
-          <div class="field"><label class="label" for="nome">Nome</label><input class="input" id="nome" type="text" placeholder="Seu nome completo" required></div>
-          <div class="field"><label class="label" for="whats">WhatsApp</label><input class="input" id="whats" type="tel" placeholder="(00) 00000-0000" required></div>
-          <div class="field">
-            <label class="label" for="proc">Procedimento de interesse</label>
-            <select class="select" id="proc"><option>Harmonização labial</option><option>Perfil harmônico</option><option>Ainda não sei</option></select>
-          </div>
-          <div class="field"><label class="label" for="msg">Mensagem (opcional)</label><textarea class="textarea" id="msg"></textarea></div>
-          <label class="check"><input type="checkbox" required> Concordo com o uso dos meus dados para contato, conforme a LGPD.</label>
-          <button class="btn btn--cta btn--block" type="submit">Agendar avaliação</button>
-          <p class="booking__note">Resposta em até 1 hora útil. Sem compromisso.</p>
-          <div class="booking__success" role="status">
-            <h3>Recebemos seu pedido</h3>
-            <p>Nossa equipe vai chamar você no WhatsApp para confirmar o melhor horário.</p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--sand">
-    <div class="container faq measure">
-      <div class="block-title"><p class="eyebrow accent">06</p><h2>Mitos e verdades</h2></div>
-      <details open><summary>Harmonização facial muda meu rosto?</summary><p>O objetivo é equilibrar traços respeitando sua identidade, com resultado natural.</p></details>
-      <details><summary>O procedimento dói?</summary><p>Usamos anestésico tópico e técnicas que reduzem o desconforto.</p></details>
-    </div>
-  </section>
-
-  <footer class="section--dark" style="padding-block:48px">
-    <div class="container text-small">Resultados variam de pessoa para pessoa. Responsável técnico: Nome, CRO/CRM 00000.</div>
-  </footer>
-
-  <a class="fab-whatsapp" href="#formulario" aria-label="Falar no WhatsApp">WA</a>
-
-  <script>
-    // Alterna tags de filtro e simula envio do formulário (demo)
-    document.querySelectorAll('.tag').forEach(function (t) {
-      t.addEventListener('click', function () {
-        t.setAttribute('aria-pressed', t.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
-      });
-    });
-    document.getElementById('booking').addEventListener('submit', function (e) {
-      e.preventDefault();
-      this.classList.add('is-success');
-    });
-  </script>
 </body>
 </html>
